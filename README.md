@@ -52,4 +52,4 @@ Requires macOS 15+ and Xcode 16+ (or Swift 6 Command Line Tools).
 
 ## License
 
-All rights reserved. See `LICENSE` (includes the MIT notice for code ported from Omarchy).
+MIT. See `LICENSE` (also includes the MIT notices for code adapted from Omarchy and CodexBar).
