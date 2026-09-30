@@ -75,7 +75,8 @@ public struct SettingsView: View {
             AppearancePane()
                 .tabItem { Label("Appearance", systemImage: "paintpalette") }
         }
-        .frame(width: 460)
+        // 580 pt so row descriptions fit on one line (MacUX/MenuPanel.md › Settings window size).
+        .frame(width: 580)
         .fixedSize(horizontal: false, vertical: true)
         .themed(theme, accent)
     }
