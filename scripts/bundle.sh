@@ -7,8 +7,10 @@ cd "$(dirname "$0")/.."
 readonly SCRATCH="$HOME/Library/Caches/macplugins/$(basename "$PWD")"
 
 readonly APP="MacNetwork"
-swift build -c release --scratch-path "$SCRATCH" --product "$APP"
-readonly BIN="$(swift build -c release --scratch-path "$SCRATCH" --show-bin-path)/$APP"
+# Universal binary: Apple silicon and Intel Macs.
+readonly ARCHS=(--arch arm64 --arch x86_64)
+swift build -c release --scratch-path "$SCRATCH" "${ARCHS[@]}" --product "$APP"
+readonly BIN="$(swift build -c release --scratch-path "$SCRATCH" "${ARCHS[@]}" --show-bin-path)/$APP"
 readonly OUT="build/$APP.app"
 
 rm -rf "$OUT"

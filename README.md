@@ -34,6 +34,16 @@ Screenshots are Xcode preview renders with documentation-range addresses.
 - One static IPv4 address per service (a `networksetup` limit), and a router is required for manual mode.
 - Enterprise (802.1X) Wi-Fi sign-in is not built in yet.
 
+## Install
+
+1. Download `MacNetwork-0.1.0.zip` from [Releases](https://github.com/RohiRIK/mac-network/releases/latest) and unzip it.
+2. Move `MacNetwork.app` to Applications and open it.
+3. The app is not notarized by Apple, so macOS blocks the first launch. Open **System Settings ›
+   Privacy & Security**, scroll down, and click **Open Anyway** next to MacNetwork. Or in Terminal:
+   `xattr -dr com.apple.quarantine /Applications/MacNetwork.app`
+
+macOS 15 or later, Apple silicon and Intel.
+
 ## Build and test
 
 ```bash
