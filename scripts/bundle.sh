@@ -15,5 +15,8 @@ rm -rf "$OUT"
 mkdir -p "$OUT/Contents/MacOS"
 cp "$BIN" "$OUT/Contents/MacOS/$APP"
 cp Resources/Info.plist "$OUT/Contents/Info.plist"
-codesign --force --sign - "$OUT"
+# Ad-hoc signatures change on every build, and TCC drops Location access when they do.
+# A designated requirement on the bundle id keeps grants across rebuilds (local builds only).
+readonly BUNDLE_ID="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$OUT/Contents/Info.plist")"
+codesign --force --sign - -r="designated => identifier \"$BUNDLE_ID\"" "$OUT"
 echo "$OUT"
